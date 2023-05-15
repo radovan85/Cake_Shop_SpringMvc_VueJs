@@ -23,3 +23,20 @@
 
 ####
 ####
+<img width="960" alt="pic00" src="https://github.com/radovan85/cake-shop-app/assets/85531983/c71479c5-8ef1-451d-a1da-936d89b22cbf">
+<img width="958" alt="pic01" src="https://github.com/radovan85/cake-shop-app/assets/85531983/0d84e81d-f8f8-42d5-8672-693164792fe3">
+<img width="959" alt="pic02" src="https://github.com/radovan85/cake-shop-app/assets/85531983/d4f11f9d-0f64-4dd9-8aaa-ba5e2914e9cf">
+<img width="960" alt="pic03" src="https://github.com/radovan85/cake-shop-app/assets/85531983/3466f9c8-5542-491f-be5e-2d07eb34e95a">
+<img width="960" alt="pic04" src="https://github.com/radovan85/cake-shop-app/assets/85531983/d22a49ba-b0bd-4957-8114-7f5d2afa4689">
+<img width="960" alt="pic05" src="https://github.com/radovan85/cake-shop-app/assets/85531983/b32b865f-e2af-4fa1-916a-e44fe9b1edb3">
+<img width="960" alt="pic06" src="https://github.com/radovan85/cake-shop-app/assets/85531983/e1cc0712-975e-4d72-b594-2d23b14c952d">
+<img width="960" alt="pic07" src="https://github.com/radovan85/cake-shop-app/assets/85531983/c2699e8c-20d4-453a-85d4-3c386ccd6815">
+<img width="960" alt="pic08" src="https://github.com/radovan85/cake-shop-app/assets/85531983/80c1e1c9-34b7-4859-9040-daf4f7a116f2">
+<img width="960" alt="pic09" src="https://github.com/radovan85/cake-shop-app/assets/85531983/8da9b9db-7a3b-4b6f-8880-736fa149ef27">
+<img width="959" alt="pic10" src="https://github.com/radovan85/cake-shop-app/assets/85531983/11bd5526-961c-44d5-bab2-851b44a0035d">
+<img width="959" alt="pic11" src="https://github.com/radovan85/cake-shop-app/assets/85531983/48af0017-2871-4cd5-92f4-aa749a5aeb8e">
+<img width="960" alt="pic12" src="https://github.com/radovan85/cake-shop-app/assets/85531983/6e2c1ab5-b176-46de-b82a-029211be0793">
+<img width="960" alt="pic13" src="https://github.com/radovan85/cake-shop-app/assets/85531983/54a17987-d152-4f6d-ad32-b57bfaa5c02c">
+<img width="960" alt="pic14" src="https://github.com/radovan85/cake-shop-app/assets/85531983/3ce16fbd-7387-4915-b04b-5ff81daf3a61">
+<img width="960" alt="pic15" src="https://github.com/radovan85/cake-shop-app/assets/85531983/9176aaa6-1f4c-4886-a3e5-2096da44a595">
+
