@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+	
+	<th:block th:fragment="ajaxLoadedContent">
+	
+		<div class="container mt-5" id="vueContent" style="font-family: Oswald, sans-serif">
+    		<div class="row">
+        		<div class="col-sm-5 d-flex justify-content-center">
+            		<img class="mt-5" style="height:300px;width:300px;" @error="onImageLoadFailure($event)" :src="imageUrl" />
+        		</div>
+        		<div class="col-sm-7 mt-5">
+            		<h2>{{ name }}</h2>
+            		<p>{{ tempCategory.name }}</p>
+            		<h2>&euro;<span>{{ price }}</span></h2>
+            		<h5>Weight:
+                		<span>{{ weight }}</span> grams.
+            		</h5>
+            		<p>{{ description }}</p>
+            		<button class="btn btn-primary" 
+            			v-on:click="addToCart(productId)">
+            			Add to cart
+            		</button>
+        		</div>
+    		</div>
+		</div>
+		
+		<script th:src="@{/js/products.js?newversion}"></script>
+		
+		<script>
+			$(document).ready(function() {
+				var productId = "[[${productId}]]";
+				productApp.getSelectedProduct(productId);
+				//productApp.getProductCategory(productId);
+			});
+		</script>
+	
+	</th:block>

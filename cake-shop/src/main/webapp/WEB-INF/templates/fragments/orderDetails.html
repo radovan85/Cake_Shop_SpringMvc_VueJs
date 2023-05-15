@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+	
+	<th:block th:fragment="ajaxLoadedContent">
+	
+		<div class="container" id="vueContent" 
+			style="margin-bottom: 100px;margin-top: 100px;font-family: Oswald, sans-serif">
+			
+			
+    <div class="row mt-5">
+        <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <p>
+                        <em>{{ tempUser.firstName }} &#160; {{ tempUser.lastName}}</em>          
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<address>
+						<strong>Delivery Address</strong><br /> 
+						<span>{{ address }}</span> <br /> 
+						<span>{{ city }}</span>  <br /> 
+						<span>{{ postcode }}</span><br />
+						</address>
+				</div>
+			</div>	
+            <div class="row">
+                <div class="text-center">
+                    <h1>Receipt</h1>
+                </div>
+
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Components</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+					<template v-for="(item,i) in orderItemList" :key="i">
+                    <tr>
+
+                        <td>{{ item.productName }} &#160; x &#160; {{item.quantity}} &#160;&#160; = &#160;&#160;&euro; {{ item.price }}</td> 
+
+                    </tr>
+                    </template>              
+                    </tbody>
+                </table>
+                <div class="mt-5">
+                	<h3>Order Price:&#160;&#160;&#160;&euro;&#160;<span>{{ orderPrice }}</span></h3>
+                	<h4>Order Time: &#160; {{ orderTimeStr }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-5" th:align="${'center'}">
+    	<button class="btn btn-danger mr-3" v-on:click="deleteOrder(orderId)">Delete</button>
+		<button class="btn btn-primary" th:onclick="redirectAllOrders()">All Orders</button>
+	</div>
+</div>
+	
+	<script th:src="@{/js/order.js?newversion}"></script>
+	
+	<script>
+		$(document).ready(function(){
+			var orderId = "[[${orderId}]]";
+			orderApp.getOrder(orderId);
+		})
+		
+					
+	</script>
+	
+	</th:block>

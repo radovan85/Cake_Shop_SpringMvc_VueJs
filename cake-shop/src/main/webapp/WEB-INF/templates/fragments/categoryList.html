@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+	
+	<th:block th:fragment="ajaxLoadedContent">
+	
+		<div id="vueContent" class="container" 
+			style="margin-bottom:100px;margin-top: 100px;font-family: Oswald, sans-serif">
+
+    		<button style="margin: 20px 0" class="btn btn-primary"
+    			th:onclick="redirectAddCategory()"
+    			>Add Category
+    		</button>
+    		<table class="table" id="listingTable">
+        		<thead class="thead-light">
+        			<tr>
+            			<th scope="col">Category Id</th>
+            			<th scope="col">Category Name</th>
+            			<th scope="col">Delete</th>
+            			<th scope="col">Update</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+
+        			<tr v-for="(category,c) in categoryList" :key="c">
+            			<td>{{ category.categoryId }}</td>
+            			<td>{{ category.name }}</td>
+
+            			<td>
+            				<button class="btn btn-danger"
+            					v-on:click="deleteCategory(category.categoryId)"
+            					>Delete
+            				</button>
+            			</td>
+            			<td>
+            				<button class="btn btn-warning"
+            					v-on:click="updateCategory(category.categoryId)"
+            					>Update
+            				</button>
+            			</td>
+					</tr>
+        		</tbody>
+    		</table>
+		</div>
+		
+		<script th:src="@{/js/categories.js?newversion}"></script>
+		
+		<script>
+	
+			$(document).ready(function() {
+				categoryApp.getAllCategories();
+			});
+		
+		</script>
+	</th:block>

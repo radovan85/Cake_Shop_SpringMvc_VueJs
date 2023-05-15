@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+	
+	<th:block th:fragment="ajaxLoadedContent">
+	
+		<div class="container" 
+			id="vueContent"
+			style="margin-bottom: 100px;margin-top: 100px;font-family: Oswald, sans-serif">
+    		<div class="col-sm-6">
+        		<h3 style="margin-top: 10px">Sign Up Now</h3>
+        		<p>Please fill out this to register</p>
+       		 	<form id="registrationForm">
+            		<div class="form-group">
+                		<label for="firstName">First Name</label>
+                			<input 
+                				type="text"                				
+                				id="firstName" 
+                				th:placeholder="${'Your Firstname'}" 
+                				class="form-control form-control-lg" 
+                				v-model="firstName"
+                			/>
+                			<span class="text-danger" id="firstNameError" 
+                        		th:style="${'visibility: hidden;'}" 
+                        		th:text="${'Please provide first name!'}">
+                        	</span>
+                	</div>
+                	
+            		<div class="form-group">
+                		<label for="lastName">Last Name</label>
+                		<input 
+                			type="text"                			
+                			id="lastName" 
+                			th:placeholder="${'Your Lastname'}" 
+                			class="form-control form-control-lg"
+                			v-model="lastName" 
+                		/>
+                		<span class="text-danger" id="lastNameError" 
+                        		th:style="${'visibility: hidden;'}" 
+                        		th:text="${'Please provide last name!'}">
+                        	</span>
+            		</div>
+            		
+            		<div class="form-group">
+                		<label for="email">Email address</label>
+                		<input 
+                			type="text" 
+                			class="form-control form-control-lg" 
+                			th:placeholder="${'Email'}"        
+                			id="email"
+                       		aria-describedby="emailHelp"
+                       		v-model="email"
+                       	/>
+                       	<span class="text-danger" id="emailError" 
+                        	th:style="${'visibility: hidden;'}" 
+                        	th:text="${'Please provide valid email!'}">
+                        </span>
+                       	
+                		<small id="emailHelp" 
+                			class="form-text text-muted">We'll never share your email with
+                    		anyone else.
+                    	</small>
+            		</div>
+            	
+            		<div class="form-group">
+                		<label for="password">Password</label>
+                		<input 
+                			type="password" 
+                			class="form-control form-control-lg" 
+                			th:placeholder="${'Password'}"                			
+                       		id="password" 
+                       		v-model="password"
+                       	/>
+                       	<span class="text-danger" id="passwordError" 
+                        	th:style="${'visibility: hidden;'}" 
+                        	th:text="${'Minimum 6 letters!'}">
+                        </span>
+            		</div>
+            		
+            		<div class="form-group">
+                		<label for="password">Confirm Password</label>
+                		<input 
+                			type="password" 
+                			class="form-control form-control-lg" 
+                			th:placeholder="${'Confirm Password'}"                			
+                       		id="confirmpass" 
+                       	/>
+            		</div>
+            		
+            		<div class="form-group">
+                		<label for="password">Phone</label>
+                		<input 
+                			type="text" 
+                			class="form-control form-control-lg" 
+                			th:placeholder="${'Phone Number'}"                			
+                       		id="phone" 
+                       		v-model="phone"
+                       		th:onkeypress="return validateNumber(event)"
+                       	/>
+                       	<span class="text-danger" id="phoneError" 
+                        	th:style="${'visibility: hidden;'}" 
+                        	th:text="${'Minimum 8 max 10 letters!'}">
+                        </span>
+            		</div>
+
+            		<button type="submit" value="Register" class="btn btn-primary btn-block">Register</button>
+            		<span style="margin-top: 10px">Already have an account 
+            			<a class="linkControl" 
+                        	th:onclick="redirectLogin()">Login here
+                        </a>
+                    </span>
+        		</form>
+    		</div>
+		</div>
+		
+		<script th:src="@{/js/registerForm.js?newversion}"></script>
+		
+		<script>
+			var element = document.getElementById("registrationForm");
+			element.addEventListener("submit", event => {
+  				event.preventDefault();
+  				executeRegistration();
+  			});
+  		</script>
+	
+	</th:block>

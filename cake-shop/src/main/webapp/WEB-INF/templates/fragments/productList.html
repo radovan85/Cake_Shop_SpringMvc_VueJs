@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+	
+	<th:block th:fragment="ajaxLoadedContent">
+	
+		<div class="container-fluid" id="vueContent"
+			style="margin-bottom: 100px;margin-top: 100px;font-family: Oswald, sans-serif">
+
+    		<button  style="margin: 20px 0" class="btn btn-primary"
+    			th:onclick="redirectAddProduct()"
+    			>Add Product
+    		</button>
+    		<table class="table" id="listingTable">
+        		<thead class="thead-light">
+        			<tr>
+            			<th scope="col">ProductId</th>
+            			<th scope="col">Product Name</th>
+            			<th scope="col">Category</th>
+            			<th scope="col">Preview</th>
+            			<th scope="col">Delete</th>
+            			<th scope="col">Update</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+
+					 <template v-for="(product,p) in productList" :key="p">
+					 <template v-for="(category,c) in categoryList" :key="c">
+					 <template v-if="product.categoryId === category.categoryId">
+        				<tr>
+            				<td>{{ product.productId }}</td>
+            				<td>{{ product.name }}</td>
+            				<td>{{ category.name}}</td>
+            				<td>
+								<img @error="onImageLoadFailure($event)" :src="product.imageUrl"
+								style="height: 100px;width: 100px;"/>
+							</td>
+
+            				<td>
+            					<button class="btn btn-danger"
+            						v-on:click="deleteProduct(product.productId)"
+            						>Delete
+            					</button>
+            				</td>
+            				<td>
+            					<button class="btn btn-warning"
+            						v-on:click="updateProduct(product.productId)"
+            						>Update
+            					</button>
+            				</td>
+        				</tr>
+        			</template>
+        			</template>
+        			</template>
+        		</tbody>
+    		</table>
+		</div>
+		
+		<script th:src="@{/js/products.js?newversion}"></script>
+		
+		<script>
+	
+			$(document).ready(function() {
+				productApp.getAllProducts();	
+			});
+					
+		</script>
+	</th:block>

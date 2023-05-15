@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+	
+	<th:block th:fragment="ajaxLoadedContent">
+	
+		<div class="container" id="vueContent"
+			style="margin-bottom: 100px;margin-top: 100px;font-family: Oswald, sans-serif">
+
+    		<table class="table mt-5" id="listingTable">
+        		<thead class="thead-light">
+        			<tr>
+            			<th scope="col">Customer Id</th>
+            			<th scope="col">Full Name</th>
+            			<th scope="col">Email</th>
+            			<th scope="col">Enabled</th>
+            			<th scope="col">Actions</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+
+					 <template v-for="(user,u) in userList" :key="u">
+					 <template v-for="(customer,c) in customerList" :key="c">
+					 <template v-if="user.id === customer.userId">
+        				<tr>
+            				<td>{{ customer.customerId }}</td>
+            				<td>{{ user.firstName }} &#160; {{ user.lastName }}</td>
+            				<td>{{ user.email}}</td>
+            				
+            				<td>
+            					<span v-if="user.enabled == 1">Active</span>
+            					<span v-else>Suspended</span>
+							</td>
+							
+
+            				<td>
+            					<button class="btn btn-danger mr-2"
+            						v-on:click="deleteCustomer(customer.customerId)"
+            						>Delete
+            					</button>
+            					<button v-if="user.enabled == 0" class="btn btn-warning"
+            						v-on:click="reactivateUser(user.id)"
+            						>Reactivate
+            					</button>
+            					<button v-else class="btn btn-dark"
+            						v-on:click="suspendUser(user.id)"
+            						>Suspend
+            					</button>
+            				</td>
+        				</tr>
+        			</template>
+        			</template>
+        			</template>
+        		</tbody>
+    		</table>
+		</div>
+		
+		<script th:src="@{/js/customers.js?newversion}"></script>
+		
+	</th:block>

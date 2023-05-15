@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+	
+	<th:block th:fragment="ajaxLoadedContent">
+	
+		<div class="container" id="vueContent"
+			style="margin-bottom: 100px;margin-top: 100px;font-family: Oswald, sans-serif">
+
+    		<table class="table mt-5" id="listingTable">
+        		<thead class="thead-light">
+        			<tr>
+            			<th scope="col">Order Id</th>
+            			<th scope="col">Customer</th>
+            			<th scope="col">Email</th>
+            			<th scope="col">Time</th>
+            			<th scope="col">Actions</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+
+					 <template v-for="(user,u) in userList" :key="u">
+					 <template v-for="(customer,c) in customerList" :key="c">
+					 <template v-for="(order,o) in orderList" :key="o">
+					 <template v-if="user.id == customer.userId">
+					 <template v-if="order.customerId == customer.customerId">
+        				<tr>
+            				<td>{{ order.orderId }}</td>
+            				<td>{{ user.firstName }} &#160; {{ user.lastName }}</td>
+            				<td>{{ user.email}}</td>
+            				<td>{{ order.orderTimeStr }}</td>
+							
+
+            				<td>
+            					<button class="btn btn-info"
+            						v-on:click="viewSelectedOrder(order.orderId)"
+            						>Details
+            					</button>
+            				</td>
+        				</tr>
+        			</template>
+        			</template>
+        			</template>
+        			</template>
+        			</template>
+        		</tbody>
+    		</table>
+		</div>
+		
+		<script th:src="@{/js/order.js?newversion}"></script>
+		
+		<script>
+			$(document).ready(function(){
+				orderApp.getAllOrders();
+			})
+		</script>
+		
+	</th:block>

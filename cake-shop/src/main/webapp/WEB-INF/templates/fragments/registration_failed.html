@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+	
+	<th:block th:fragment="ajaxLoadedContent">
+		<div class="container" style="margin-top:100px;margin-bottom:100px;font-family: Oswald, sans-serif">
+			<div class="text-center">
+        		<h1 th:text="${'Registration Failed'}"></h1>
+        		<h3 th:text="${'Email exists already'}"></h3>
+        		
+        		<button class="btn btn-info mt-5" 
+            		th:onclick="redirectHome()"   
+                	th:text="${'Home Page'}">
+            	</button>
+        	</div>
+        	
+        	
+            
+		</div>
+	
+	
+	</th:block>

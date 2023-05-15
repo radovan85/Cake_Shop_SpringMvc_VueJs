@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
+	
+	<th:block th:fragment="ajaxLoadedContent">
+	
+		<div id="vueContent" class="container" 
+			style="margin-top: 100px;margin-bottom: 100px;font-family: Oswald, sans-serif">
+			<div class="jumbotron text-center">
+    			<h1 class="display-4">Welcome back, Admin</h1>
+    			<p>Easily manage your data from this admin <mark>CMS</mark></p>
+			</div>
+			<div class="container-fluid">
+    			<div class="row">
+        			<div class="col-sm-3 pt-3" >
+            			<div class="card" style="background-color:white;">
+                			<div class="card-body">
+                    			<h4 class="card-title">Categories</h4>
+                    			<p class="card-text">Manage the categories section here.</p>
+                    			<button class="card-link btn btn-primary"
+                    				th:onclick="redirectAllCategories()"
+                    				>Manage
+                    			</button>
+                			</div>
+           				</div>
+        			</div>
+        			<div class="col-sm-3 pt-3" >
+            			<div class="card" style="background-color:white;">
+                			<div class="card-body">
+                    			<h4 class="card-title">Products</h4>
+                    			<p class="card-text">Manage all the products here.</p>
+                    			<button class="card-link btn btn-primary"
+                    				th:onclick="redirectAllProducts()"
+                    				>Manage
+                    			</button>
+
+                			</div>
+            			</div>
+        			</div>
+        			<div class="col-sm-3 pt-3" >
+            			<div class="card" style="background-color:white;">
+                			<div class="card-body">
+                    			<h4 class="card-title">Customers</h4>
+                    			<p class="card-text">Manage all the customers here.</p>
+                    			<button class="card-link btn btn-primary"
+                    				th:onclick="redirectAllCustomers()"
+                    				>Manage
+                    			</button>
+                			</div>
+            			</div>
+        			</div>
+        			<div class="col-sm-3 pt-3" >
+            			<div class="card" style="background-color:white;">
+                			<div class="card-body">
+                    			<h4 class="card-title">Orders</h4>
+                    			<p class="card-text">Manage all the orders here.</p>
+                    			<button class="card-link btn btn-primary"
+                    				th:onclick="redirectAllOrders()"
+                    				>Manage
+                    			</button>
+                			</div>
+            			</div>
+        			</div>
+    			</div>
+			</div>
+		</div>
+	</th:block>
